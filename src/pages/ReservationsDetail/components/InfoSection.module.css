@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-gray-dark);
+}
+
+.sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-gray-light);
+}
+
+.subContent {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-gray);
+}

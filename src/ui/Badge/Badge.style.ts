@@ -45,6 +45,7 @@ export const BadgeWrapper = styled.span<Omit<BadgeProps, 'children'>>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 
   ${({ size }) => getSizeStyle(size)}
   ${({ variant }) => getVariantStyle(variant)}

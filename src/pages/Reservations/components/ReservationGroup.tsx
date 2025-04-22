@@ -9,12 +9,12 @@ export default function ReservationGroup({ time }: Props) {
   return (
     <>
       <div className={styles.time}>{time} 4건</div>
-      <div className={styles.group}>
+      <ul className={styles.group}>
         <ReservationCard />
         <ReservationCard />
         <ReservationCard />
         <ReservationCard />
-      </div>
+      </ul>
     </>
   );
 }

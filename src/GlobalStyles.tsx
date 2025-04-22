@@ -41,9 +41,11 @@ const globalStyles = css`
     margin: 0;
   }
 
-  ul[role='list'],
-  ol[role='list'] {
+  ul,
+  ol {
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   body {

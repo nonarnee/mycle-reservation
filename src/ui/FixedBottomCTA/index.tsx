@@ -1,9 +1,9 @@
 import { FixedBottomCTAProps } from './FixedBottomCTA.type';
 import { FixedBottomCTAWrapper, FixedBottomCTAButtons } from './FixedBottomCTA.style';
 
-export default function FixedBottomCTA({ primary, secondary }: FixedBottomCTAProps) {
+export default function FixedBottomCTA({ primary, secondary, border }: FixedBottomCTAProps) {
   return (
-    <FixedBottomCTAWrapper>
+    <FixedBottomCTAWrapper border={border}>
       <FixedBottomCTAButtons>
         {secondary}
         {primary}

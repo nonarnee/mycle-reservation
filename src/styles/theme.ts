@@ -12,6 +12,7 @@ export const theme = {
     gray: '#6d7882',
     'gray-light': '#8e98a0',
     'gray-light2': '#e3e7ea',
+    'gray-light3': '#cfd5d9',
     danger: '#f84848',
     'danger-light': '#ffecec',
   },
