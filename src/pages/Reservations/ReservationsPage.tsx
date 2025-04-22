@@ -2,7 +2,10 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 
 import Button from '@/ui/Button';
+import Navigator from '@/ui/Navigator';
 import Switch from '@/ui/Switch';
+import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?react';
+import ChevronRightIcon from '@/assets/icons/chevron_right.svg?react';
 
 export default function ReservationsPage() {
   const [checked, setChecked] = useState(false);
@@ -20,6 +23,24 @@ export default function ReservationsPage() {
           padding: 16px;
         `}
       >
+        <div>
+          <Navigator
+            prev={
+              <Navigator.Prev
+                icon={<ChevronLeftIcon width={24} height={24} />}
+                onClick={() => console.log('prev')}
+              />
+            }
+            next={
+              <Navigator.Next
+                icon={<ChevronRightIcon width={24} height={24} />}
+                onClick={() => console.log('next')}
+                disabled
+              />
+            }
+            contents={<>title</>}
+          />
+        </div>
         <div>
           <Switch checked={checked} onClick={toggleChecked} />
         </div>

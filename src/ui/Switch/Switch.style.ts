@@ -27,7 +27,6 @@ const getCheckedTransform = (checked: boolean) => {
 };
 
 export const SwitchWrapper = styled.div`
-  margin-left: 16px;
   position: relative;
   display: inline-block;
 `;
