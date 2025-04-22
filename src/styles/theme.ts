@@ -10,6 +10,7 @@ export const theme = {
     grayDark: '#1a2128',
     gray: '#6d7882',
     grayLight: '#8e98a0',
+    grayLight2: '#e3e7ea',
     primaryLight: '#e0f5ff',
     danger: '#f84848',
     dangerLight: '#ffecec',

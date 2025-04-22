@@ -1,8 +1,16 @@
 import { css } from '@emotion/react';
+import { useState } from 'react';
 
 import Button from '@/ui/Button';
+import Switch from '@/ui/Switch';
 
 export default function ReservationsPage() {
+  const [checked, setChecked] = useState(false);
+
+  const toggleChecked = () => {
+    setChecked((prev) => !prev);
+  };
+
   return (
     <>
       <div>header</div>
@@ -12,6 +20,9 @@ export default function ReservationsPage() {
           padding: 16px;
         `}
       >
+        <div>
+          <Switch checked={checked} onClick={toggleChecked} />
+        </div>
         <div
           css={css`
             display: flex;
