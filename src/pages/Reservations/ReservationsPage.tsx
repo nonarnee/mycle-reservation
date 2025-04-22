@@ -6,6 +6,7 @@ import Navigator from '@/ui/Navigator';
 import Switch from '@/ui/Switch';
 import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?react';
 import ChevronRightIcon from '@/assets/icons/chevron_right.svg?react';
+import FixedBottomCTA from '@/ui/FixedBottomCTA';
 
 export default function ReservationsPage() {
   const [checked, setChecked] = useState(false);
@@ -61,7 +62,18 @@ export default function ReservationsPage() {
           </Button>
         </div>
       </div>
-      <div>footer</div>
+      <FixedBottomCTA
+        primary={
+          <Button variant="primary" size="medium" fullWidth>
+            ok
+          </Button>
+        }
+        secondary={
+          <Button variant="dark" size="medium" fullWidth>
+            cancel
+          </Button>
+        }
+      />
     </>
   );
 }

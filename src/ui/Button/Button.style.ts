@@ -51,11 +51,28 @@ const getSizeStyle = (size: 'small' | 'medium' | 'large') => {
   }
 };
 
+const getFullWidthStyle = (fullWidth: boolean) => {
+  if (fullWidth) {
+    return css`
+      flex: 1;
+    `;
+  }
+};
+
 export const StyledButton = styled.button<ButtonProps>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  padding: 0;
 
   ${({ variant }) => getTypeStyle(variant)}
   ${({ size }) => getSizeStyle(size)}
+  ${({ fullWidth }) => getFullWidthStyle(Boolean(fullWidth))}
 `;

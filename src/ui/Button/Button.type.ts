@@ -5,4 +5,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant: ButtonVariant;
   size: ButtonSize;
   children: React.ReactNode;
+  fullWidth?: boolean;
 }
