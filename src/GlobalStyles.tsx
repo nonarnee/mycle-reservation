@@ -1,6 +1,7 @@
 import { Global, css } from '@emotion/react';
 
 import { fonts } from './styles/fonts';
+import { theme } from './styles/theme';
 
 export default function GlobalStyles() {
   return <Global styles={globalStyles} />;
@@ -8,6 +9,12 @@ export default function GlobalStyles() {
 
 const globalStyles = css`
   ${fonts}
+
+  :root {
+    ${Object.entries(theme.colors).map(([key, value]) => {
+      return `--color-${key}: ${value};`;
+    })}
+  }
 
   *,
   *::before,

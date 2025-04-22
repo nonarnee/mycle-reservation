@@ -10,7 +10,7 @@ const getCheckedColor = (checked: boolean) => {
     `;
   }
   return css`
-    background-color: ${theme.colors.grayLight2};
+    background-color: ${theme.colors['gray-light2']};
   `;
 };
 

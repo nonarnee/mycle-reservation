@@ -14,7 +14,7 @@ const getTypeStyle = (variant: ButtonVariant) => {
       `;
     case 'danger':
       return css`
-        background: ${theme.colors.dangerLight};
+        background: ${theme.colors['danger-light']};
         color: ${theme.colors.danger};
       `;
     case 'dark':

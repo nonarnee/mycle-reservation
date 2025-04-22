@@ -1,6 +1,6 @@
 import { theme } from '@/styles/theme';
 
-export default function Border({ size }: { size: number }) {
+export default function Border({ size = 1 }: { size?: number }) {
   return <div style={{ flex: 'none', height: size, background: theme.colors.background }} />;
 }
 

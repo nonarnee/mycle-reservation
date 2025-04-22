@@ -7,7 +7,7 @@ export function PageLayout({ children }: { children: ReactNode }) {
       css={css`
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        height: 100vh;
       `}
     >
       {children}

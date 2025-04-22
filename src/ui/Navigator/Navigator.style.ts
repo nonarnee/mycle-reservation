@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { theme } from '@/styles/theme';
+
 export const NavigatorWrapper = styled.div`
   position: relative;
   display: flex;
@@ -11,6 +13,9 @@ export const NavigatorContents = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 600;
+  color: ${theme.colors['gray-dark']};
 `;
 
 export const NavigatorSide = styled.div`

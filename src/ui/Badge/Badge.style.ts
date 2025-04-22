@@ -30,12 +30,12 @@ const getVariantStyle = (variant: BadgeProps['variant']) => {
   switch (variant) {
     case 'primary':
       return css`
-        background-color: ${theme.colors.primaryLight};
+        background-color: ${theme.colors['primary-light']};
         color: ${theme.colors.primary};
       `;
     case 'danger':
       return css`
-        background-color: ${theme.colors.dangerLight};
+        background-color: ${theme.colors['danger-light']};
         color: ${theme.colors.danger};
       `;
   }

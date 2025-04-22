@@ -1,0 +1,23 @@
+.header {
+  height: 116px;
+  padding-top: env(safe-area-inset-top);
+  flex-shrink: 0;
+  box-shadow: 0px 4px 16px 0px rgba(26, 33, 40, 0.12);
+  z-index: 1;
+}
+
+.navigator {
+  padding: 20px 20px 12px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px 12px 20px;
+}
+.filter span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-gray);
+}
