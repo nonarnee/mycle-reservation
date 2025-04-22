@@ -4,9 +4,10 @@ import { useState } from 'react';
 import Button from '@/ui/Button';
 import Navigator from '@/ui/Navigator';
 import Switch from '@/ui/Switch';
+import FixedBottomCTA from '@/ui/FixedBottomCTA';
+import Badge from '@/ui/Badge';
 import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?react';
 import ChevronRightIcon from '@/assets/icons/chevron_right.svg?react';
-import FixedBottomCTA from '@/ui/FixedBottomCTA';
 
 export default function ReservationsPage() {
   const [checked, setChecked] = useState(false);
@@ -41,6 +42,20 @@ export default function ReservationsPage() {
             }
             contents={<>title</>}
           />
+        </div>
+        <div>
+          <Badge variant="primary" size="small">
+            asd
+          </Badge>
+          <Badge variant="danger" size="small">
+            asd
+          </Badge>
+          <Badge variant="primary" size="large">
+            asd
+          </Badge>
+          <Badge variant="danger" size="large">
+            asd
+          </Badge>
         </div>
         <div>
           <Switch checked={checked} onClick={toggleChecked} />
