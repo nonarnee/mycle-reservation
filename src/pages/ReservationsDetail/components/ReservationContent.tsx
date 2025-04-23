@@ -20,9 +20,6 @@ export default function ReservationContent() {
       <Border size={8} />
       <PaymentSection />
 
-      {/* CTA 크기 */}
-      <Spacing size={72} />
-
       {/* 하단 여백 */}
       <Spacing size={64} />
     </main>

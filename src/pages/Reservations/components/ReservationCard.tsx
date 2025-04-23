@@ -60,9 +60,9 @@ export default function ReservationCard() {
         )}
       </div>
 
-      <Spacing size={16} />
+      <Spacing size={18} />
       <Border />
-      <Spacing size={16} />
+      <Spacing size={18} />
 
       <div className={styles.info}>
         <span className={styles.car} css={singleLineEllipsis}>
