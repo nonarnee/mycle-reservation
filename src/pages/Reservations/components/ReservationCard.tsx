@@ -22,6 +22,7 @@ export default function ReservationCard({ reservation }: Props) {
 
   const mainProduct = reservation.products[0];
   const subProducts = reservation.products.slice(1);
+  const visitLabel = customer?.visitCount ? `${customer.visitCount}회 방문` : '신규 고객';
   const isCanceled =
     reservation.status === ReservationStatus.CANCELLED ||
     reservation.status === ReservationStatus.DEFERRED;
@@ -75,7 +76,7 @@ export default function ReservationCard({ reservation }: Props) {
         <span className={styles.car} css={singleLineEllipsis}>
           {customer?.vehicle.number} {customer?.vehicle.model}
         </span>
-        <Badge>3회 방문</Badge>
+        <Badge>{visitLabel}</Badge>
       </div>
 
       <Spacing size={8} />

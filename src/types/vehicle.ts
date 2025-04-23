@@ -6,6 +6,14 @@ export enum FuelType {
   ELECTRICITY = 'ELECTRICITY',
 }
 
+export enum FuelTypeLabel {
+  PREMIUM_GASOLINE = '고급 휘발유',
+  GASOLINE = '일반 휘발유',
+  DIESEL = '경유',
+  LPG = 'LPG',
+  ELECTRICITY = '전기',
+}
+
 export interface Vehicle {
   brand: string;
   model: string;

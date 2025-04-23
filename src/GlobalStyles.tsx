@@ -59,6 +59,9 @@ const globalStyles = css`
   button,
   input,
   label {
+    padding: 0;
+    background-color: transparent;
+    border: none;
     line-height: 1.1;
   }
 

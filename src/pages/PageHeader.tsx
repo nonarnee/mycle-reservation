@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
+import { useNavigate } from 'react-router';
 
 import ArrowLeftIcon from '@/assets/icons/arrow_left.svg?react';
 
@@ -8,19 +9,33 @@ interface Props {
 }
 
 export default function PageHeader({ title, children }: PropsWithChildren<Props>) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(-1);
+  };
+
   return (
     <header>
       <div
         css={css`
           display: flex;
           align-items: center;
-          padding: 16px;
+          padding: 4px;
         `}
       >
-        <ArrowLeftIcon width={24} height={24} />
+        <button
+          css={css`
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+          `}
+        >
+          <ArrowLeftIcon width={24} height={24} onClick={handleClick} />
+        </button>
         <span
           css={css`
-            padding-left: 16px;
             font-weight: 500;
             font-size: 16px;
           `}
