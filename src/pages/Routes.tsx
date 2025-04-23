@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 
 import ReservationsPage from './Reservations/ReservationsPage';
 import ReservationsDetailPage from './ReservationsDetail/ReservationsDetailPage';
+import ErrorPage from './Errors/ErrorPage';
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: '/reservations/:id',
     element: <ReservationsDetailPage />,
+  },
+  {
+    path: '/error',
+    element: <ErrorPage />,
   },
   {
     path: '*',

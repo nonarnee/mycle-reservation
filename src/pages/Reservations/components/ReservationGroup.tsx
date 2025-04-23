@@ -1,19 +1,23 @@
+import { Reservation } from '@/types/reservation';
+
 import ReservationCard from './ReservationCard';
 import styles from './ReservationGroup.module.css';
 
 interface Props {
   time: string;
+  reservations: Reservation[];
 }
 
-export default function ReservationGroup({ time }: Props) {
+export default function ReservationGroup({ time, reservations }: Props) {
   return (
     <>
-      <div className={styles.time}>{time} 4건</div>
+      <div className={styles.time}>
+        {time} {reservations.length}건
+      </div>
       <ul className={styles.group}>
-        <ReservationCard />
-        <ReservationCard />
-        <ReservationCard />
-        <ReservationCard />
+        {reservations.map((reservation) => (
+          <ReservationCard key={reservation.serverId} reservation={reservation} />
+        ))}
       </ul>
     </>
   );

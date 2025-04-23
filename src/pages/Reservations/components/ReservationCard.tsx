@@ -6,22 +6,35 @@ import Badge from '@/ui/Badge';
 import Border from '@/ui/Border';
 import Spacing from '@/ui/Spacing';
 import { multiLineEllipsis, singleLineEllipsis } from '@/styles/mixins';
+import { Reservation, ReservationStatus } from '@/types/reservation';
+
+import useCustomer from '../hooks/queries/useCustomer';
 
 import styles from './ReservationCard.module.css';
 
-export default function ReservationCard() {
+interface Props {
+  reservation: Reservation;
+}
+
+export default function ReservationCard({ reservation }: Props) {
   const navigate = useNavigate();
+  const { data: customer } = useCustomer({ customerId: reservation.customerId });
+
+  const mainProduct = reservation.products[0];
+  const subProducts = reservation.products.slice(1);
+  const isCanceled =
+    reservation.status === ReservationStatus.CANCELLED ||
+    reservation.status === ReservationStatus.DEFERRED;
 
   const handleClick = () => {
-    if (true) {
-      // 취소된 예약 아닌경우
-      navigate('/reservations/1');
+    if (!isCanceled) {
+      navigate(`/reservations/${reservation.serverId}`);
     }
   };
 
   return (
     <li className={styles.card} onClick={handleClick}>
-      {true && (
+      {isCanceled && (
         <>
           <Badge variant="danger" size="large">
             취소된 예약
@@ -32,18 +45,14 @@ export default function ReservationCard() {
 
       <div>
         <p className={styles.title} css={multiLineEllipsis(2)}>
-          일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공
+          {mainProduct.name}
         </p>
 
-        {true && (
+        {subProducts.length > 0 && (
           <>
             <Spacing size={8} />
-            <div className={styles.options}>
-              <div className={styles.option}>
-                <PlusCircleIcon width={16} height={16} />
-                <span css={singleLineEllipsis}>연료필터 카트리지</span>
-              </div>
-              <div className={styles.option}>
+            {subProducts.map((product) => (
+              <div className={styles.option} key={product.name}>
                 <PlusCircleIcon
                   width={16}
                   height={16}
@@ -51,11 +60,9 @@ export default function ReservationCard() {
                     flex-shrink: 0;
                   `}
                 />
-                <span css={singleLineEllipsis}>
-                  일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공
-                </span>
+                <span css={singleLineEllipsis}>{product.name}</span>
               </div>
-            </div>
+            ))}
           </>
         )}
       </div>
@@ -66,7 +73,7 @@ export default function ReservationCard() {
 
       <div className={styles.info}>
         <span className={styles.car} css={singleLineEllipsis}>
-          일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공
+          {customer?.vehicle.number} {customer?.vehicle.model}
         </span>
         <Badge>3회 방문</Badge>
       </div>
@@ -75,16 +82,17 @@ export default function ReservationCard() {
 
       <div className={styles.customer}>
         <div className={styles.customerInfo}>
-          <span>이름</span>
-          <span>010-1111-2222</span>
+          <span>{customer?.name}</span>
+          <span>{customer?.phone}</span>
         </div>
 
-        <Spacing size={4} />
-
-        {true && (
-          <div className={styles.request} css={multiLineEllipsis(3)}>
-            일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공일이삼사오육칠팔구공
-          </div>
+        {reservation.requirements && (
+          <>
+            <Spacing size={4} />
+            <div className={styles.request} css={multiLineEllipsis(3)}>
+              {reservation.requirements}
+            </div>
+          </>
         )}
       </div>
     </li>

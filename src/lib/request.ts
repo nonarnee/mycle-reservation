@@ -8,6 +8,17 @@ request.interceptors.request.use((config) => {
   return config;
 });
 
-console.log(import.meta.env.VITE_API_BASE_URL);
+request.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const status = error.response.status;
+
+    if (status === 404 || status === 500) {
+      window.location.href = '/error';
+    }
+  },
+);
 
 export default request;

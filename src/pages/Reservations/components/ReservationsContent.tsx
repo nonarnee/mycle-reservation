@@ -1,29 +1,55 @@
+import { useMemo } from 'react';
+
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
+import { ReservationStatus } from '@/types/reservation';
+
 import useInfiniteReservations from '../hooks/queries/useInfiniteReservations';
+import { useReservationFilterStore } from '../stores/reservationFilterStore';
 
 import ReservationList from './ReservationList';
 import styles from './ReservationsContent.module.css';
-
+import EmptySection from './EmptySection';
 export default function ReservationsContent() {
+  const { hideCancelled, selectedDate } = useReservationFilterStore();
+
   const {
-    data: reservations,
+    data: reservationData,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteReservations({
-    date: '2024-07-14',
+    date: selectedDate,
     page: 1,
     per_page: 20,
   });
 
-  console.log(reservations);
+  console.log(reservationData);
+
+  const filteredReservations = useMemo(() => {
+    if (!reservationData?.reservations) return [];
+
+    if (hideCancelled) {
+      return reservationData.reservations.filter(
+        (reservation) =>
+          reservation.status !== ReservationStatus.CANCELLED &&
+          reservation.status !== ReservationStatus.DEFERRED,
+      );
+    }
+
+    return reservationData.reservations;
+  }, [reservationData, hideCancelled]);
+
+  const scrollRef = useInfiniteScroll({
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  });
 
   return (
     <main className={styles.content}>
-      <ReservationList dailyReservations={[]} />
-      {isFetchingNextPage && <div>Loading...</div>}
-      <button onClick={() => fetchNextPage()} disabled={!hasNextPage && isFetchingNextPage}>
-        다음페이지
-      </button>
+      {filteredReservations.length === 0 && <EmptySection />}
+      <ReservationList reservations={filteredReservations} />
+      <div ref={scrollRef} />
     </main>
   );
 }
