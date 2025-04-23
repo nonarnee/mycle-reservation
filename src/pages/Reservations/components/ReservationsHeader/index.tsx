@@ -6,7 +6,7 @@ import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?react';
 import ChevronRightIcon from '@/assets/icons/chevron_right.svg?react';
 import Switch from '@/ui/Switch';
 
-import { useReservationFilterStore } from '../stores/reservationFilterStore';
+import { useReservationFilterStore } from '../../stores/reservationFilterStore';
 
 import styles from './ReservationsHeader.module.css';
 

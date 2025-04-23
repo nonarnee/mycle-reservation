@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import { ReservationStatus } from '@/types/reservation';
 
-import useInfiniteReservations from '../hooks/queries/useInfiniteReservations';
-import { useReservationFilterStore } from '../stores/reservationFilterStore';
+import useInfiniteReservations from '../../hooks/queries/useInfiniteReservations';
+import { useReservationFilterStore } from '../../stores/reservationFilterStore';
+import ReservationList from '../ReservationList';
+import EmptySection from '../EmptySection';
 
-import ReservationList from './ReservationList';
 import styles from './ReservationsContent.module.css';
-import EmptySection from './EmptySection';
 export default function ReservationsContent() {
   const { hideCancelled, selectedDate } = useReservationFilterStore();
 

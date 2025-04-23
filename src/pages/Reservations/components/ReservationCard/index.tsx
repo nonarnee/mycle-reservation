@@ -8,7 +8,7 @@ import Spacing from '@/ui/Spacing';
 import { multiLineEllipsis, singleLineEllipsis } from '@/styles/mixins';
 import { Reservation, ReservationStatus } from '@/types/reservation';
 
-import useCustomer from '../hooks/queries/useCustomer';
+import useCustomer from '../../hooks/queries/useCustomer';
 
 import styles from './ReservationCard.module.css';
 

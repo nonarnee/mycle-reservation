@@ -4,12 +4,12 @@ import { ko } from 'date-fns/locale';
 
 import ClockIcon from '@/assets/icons/clock_fill.svg?react';
 
-import PageHeader from '../../PageHeader';
-import useReservation from '../hooks/queries/useReservation';
+import PageHeader from '../../../PageHeader';
+import useReservation from '../../hooks/queries/useReservation';
 
-import styles from './ReservationHeader.module.css';
+import styles from './ReservationDetailHeader.module.css';
 
-export default function ReservationHeader() {
+export default function ReservationDetailHeader() {
   const { id } = useParams<{ id: string }>();
   const { data: reservation } = useReservation({ id: id ?? '' });
 

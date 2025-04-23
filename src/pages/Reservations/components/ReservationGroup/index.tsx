@@ -1,6 +1,7 @@
 import { Reservation } from '@/types/reservation';
 
-import ReservationCard from './ReservationCard';
+import ReservationCard from '../ReservationCard';
+
 import styles from './ReservationGroup.module.css';
 
 interface Props {

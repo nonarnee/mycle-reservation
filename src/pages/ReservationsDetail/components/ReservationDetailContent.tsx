@@ -10,7 +10,7 @@ import ProductSection from './ProductSection';
 import PaymentSection from './PaymentSection';
 import InfoSection from './InfoSection';
 
-export default function ReservationContent() {
+export default function ReservationDetailContent() {
   const { id } = useParams<{ id: string }>();
   const { data: reservation } = useReservation({ id: id ?? '' });
 

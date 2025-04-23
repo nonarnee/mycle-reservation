@@ -1,8 +1,8 @@
 import Button from '@/ui/Button';
 import FixedBottomCTA from '@/ui/FixedBottomCTA';
 
-import ReservationContent from './components/ReservationContent';
-import ReservationHeader from './components/ReservationHeader';
+import ReservationContent from './components/ReservationDetailContent';
+import ReservationHeader from './components/ReservationDetailHeader';
 
 export default function ReservationsDetailPage() {
   return (
