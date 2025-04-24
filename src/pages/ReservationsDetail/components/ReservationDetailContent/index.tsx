@@ -1,25 +1,21 @@
-import { css } from '@emotion/react';
 import { useParams } from 'react-router';
 
 import Border from '@/ui/Border';
 import Spacing from '@/ui/Spacing';
 
-import useReservation from '../hooks/queries/useReservation';
+import ProductSection from '../ProductSection';
+import PaymentSection from '../PaymentSection';
+import InfoSection from '../InfoSection';
+import useReservation from '../../hooks/queries/useReservation';
 
-import ProductSection from './ProductSection';
-import PaymentSection from './PaymentSection';
-import InfoSection from './InfoSection';
+import styles from './ReservationDetailContent.module.css';
 
 export default function ReservationDetailContent() {
   const { id } = useParams<{ id: string }>();
   const { data: reservation } = useReservation({ id: id ?? '' });
 
   return (
-    <main
-      css={css`
-        overflow-y: auto;
-      `}
-    >
+    <main className={styles.content}>
       {reservation && (
         <>
           <ProductSection reservation={reservation} />
