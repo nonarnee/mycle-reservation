@@ -25,7 +25,7 @@ export default function ProductSection({ reservation }: Props) {
           <Spacing size={12} />
           <ul className={styles.options}>
             {subProducts.map((product) => (
-              <li className={styles.option}>
+              <li className={styles.option} key={product.name}>
                 <PlusCircleIcon
                   width={16}
                   height={16}

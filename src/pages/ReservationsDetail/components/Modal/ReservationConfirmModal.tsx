@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
 
-import { ReservationDetail } from '@/types/reservation';
+import { ReservationDetail, ReservationStatus } from '@/types/reservation';
 import Modal from '@/ui/Modal';
 import Button from '@/ui/Button';
 import { theme } from '@/styles/theme';
+import { setStatus } from '@/lib/storage/reservationStatus';
 
 interface ReservationConfirmModalProps {
   isOpen: boolean;
@@ -16,7 +17,10 @@ export default function ReservationConfirmModal({
   close,
   reservation,
 }: ReservationConfirmModalProps) {
-  console.log(reservation.serverId);
+  const handleConfirm = () => {
+    setStatus(reservation.serverId, ReservationStatus.CONFIRMED);
+    close();
+  };
 
   return (
     <Modal
@@ -26,7 +30,7 @@ export default function ReservationConfirmModal({
       cta={
         <Modal.CTA
           primary={
-            <Button variant="primary" size="medium" fullWidth onClick={close}>
+            <Button variant="primary" size="medium" fullWidth onClick={handleConfirm}>
               확정하기
             </Button>
           }
@@ -43,6 +47,7 @@ export default function ReservationConfirmModal({
           font-size: 15px;
           font-weight: 500;
           color: ${theme.colors.gray};
+          white-space: pre-line;
         `}
       >
         고객에게 예약 확정 알림을 보낼게요.
