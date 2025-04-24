@@ -6,7 +6,7 @@ import {
 } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import request from '@/lib/request';
+import api from '@/lib/api';
 import { PaginatedResponse, PaginationParams } from '@/types/pagination';
 import { Reservation } from '@/types/reservation';
 
@@ -28,7 +28,7 @@ type UseInfiniteReservationsOptions = UseInfiniteQueryOptions<
 >;
 
 const fetchReservations = async (params: ReservationsParams) => {
-  const response = await request.get<PaginatedResponse<Reservation[]>>('/reservations', {
+  const response = await api.get<PaginatedResponse<Reservation[]>>('/reservations', {
     params,
   });
 

@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import request from '@/lib/request';
+import api from '@/lib/api';
 import { ReservationDetail } from '@/types/reservation';
 
 interface ReservationParams {
@@ -11,7 +11,7 @@ interface ReservationParams {
 type ReservationQueryOptions = UseQueryOptions<ReservationDetail, AxiosError>;
 
 const fetchReservation = async (id: string) => {
-  const response = await request.get<ReservationDetail>(`/reservations/${id}`);
+  const response = await api.get<ReservationDetail>(`/reservations/${id}`);
   return response.data;
 };
 

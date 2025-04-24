@@ -2,7 +2,7 @@ import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 import { Customer } from '@/types/customer';
-import request from '@/lib/request';
+import api from '@/lib/api';
 
 interface CustomerParams {
   customerId: number;
@@ -11,7 +11,7 @@ interface CustomerParams {
 type CustomerQueryOptions = UseQueryOptions<Customer, AxiosError>;
 
 const fetchCustomer = async (customerId: number) => {
-  const response = await request.get<Customer>(`/customers/${customerId}`);
+  const response = await api.get<Customer>(`/customers/${customerId}`);
   return response.data;
 };
 
