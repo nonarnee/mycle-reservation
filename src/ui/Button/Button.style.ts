@@ -72,6 +72,11 @@ export const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   padding: 0;
 
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   ${({ variant }) => getTypeStyle(variant)}
   ${({ size }) => getSizeStyle(size)}
   ${({ fullWidth }) => getFullWidthStyle(Boolean(fullWidth))}

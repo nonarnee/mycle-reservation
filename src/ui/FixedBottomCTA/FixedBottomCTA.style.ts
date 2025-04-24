@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { theme } from '@/styles/theme';
+
 const getBorder = (border: boolean) => {
   if (border) {
     return css`
-      border-top: 1px solid var(--color-background);
+      border-top: 1px solid ${theme.colors.background};
     `;
   }
   return '';
@@ -16,8 +18,8 @@ export const FixedBottomCTAWrapper = styled.div<{ border?: boolean }>`
   bottom: 0;
   width: 100%;
   padding: 12px 16px;
-  z-index: 100;
-  background-color: var(--color-white);
+  z-index: 1;
+  background-color: ${theme.colors.white};
 
   ${({ border }) => getBorder(Boolean(border))}
 `;

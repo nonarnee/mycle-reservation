@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { OverlayProvider } from '@toss/use-overlay';
 
 import { Routes } from './pages/Routes';
 import GlobalStyles from './GlobalStyles';
@@ -14,7 +15,9 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <PageLayout>
-          <Routes />
+          <OverlayProvider>
+            <Routes />
+          </OverlayProvider>
         </PageLayout>
       </ThemeProvider>
     </QueryClientProvider>
