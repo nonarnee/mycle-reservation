@@ -2,7 +2,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 
 import ReservationsPage from './Reservations/ReservationsPage';
 import ReservationsDetailPage from './ReservationsDetail/ReservationsDetailPage';
-import ErrorPage from './Errors/ErrorPage';
+import Error500 from './Errors/Error500';
+import Error404 from './Errors/Error404';
 
 const router = createBrowserRouter([
   {
@@ -14,12 +15,20 @@ const router = createBrowserRouter([
     element: <ReservationsDetailPage />,
   },
   {
-    path: '/error',
-    element: <ErrorPage />,
+    path: '/error500',
+    element: <Error500 />,
+  },
+  {
+    path: '/error404',
+    element: <Error404 />,
+  },
+  {
+    path: '/',
+    element: <Navigate to="/reservations" replace={true} />,
   },
   {
     path: '*',
-    element: <Navigate to="/reservations" replace={true} />,
+    element: <Navigate to="/error404" replace={true} />,
   },
 ]);
 

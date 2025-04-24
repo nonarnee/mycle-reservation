@@ -34,7 +34,7 @@ export default function useFilteredReservations() {
 
   return {
     reservations: filteredReservations,
-    isEmpty: filteredReservations.length === 0,
+    isEmpty: filteredReservations.length === 0 && !rest.isLoading,
     ...rest,
   };
 }

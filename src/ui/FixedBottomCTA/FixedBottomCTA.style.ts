@@ -17,6 +17,7 @@ export const FixedBottomCTAWrapper = styled.div<{ border?: boolean }>`
   left: 0;
   bottom: 0;
   width: 100%;
+  height: ${theme.size.ctaHeight};
   padding: 12px 16px;
   z-index: 1;
   background-color: ${theme.colors.white};

@@ -2,6 +2,7 @@ import { Global, css } from '@emotion/react';
 
 import { fonts } from './styles/fonts';
 import { theme } from './styles/theme';
+import { themeToCSSVars } from './utils/themeToCSSVars';
 
 export default function GlobalStyles() {
   return <Global styles={globalStyles} />;
@@ -11,9 +12,13 @@ const globalStyles = css`
   ${fonts}
 
   :root {
-    ${Object.entries(theme.colors).map(([key, value]) => {
-      return `--color-${key}: ${value};`;
-    })}
+    ${Object.entries(themeToCSSVars(theme.colors, 'color'))
+      .map(([key, value]) => `${key}: ${value};`)
+      .join('\n')}
+
+    ${Object.entries(themeToCSSVars(theme.size, 'size'))
+      .map(([key, value]) => `${key}: ${value};`)
+      .join('\n')}
   }
 
   *,

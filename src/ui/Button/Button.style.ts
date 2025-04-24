@@ -14,7 +14,7 @@ const getTypeStyle = (variant: ButtonVariant) => {
       `;
     case 'danger':
       return css`
-        background: ${theme.colors['danger-light']};
+        background: ${theme.colors.dangerLight};
         color: ${theme.colors.danger};
       `;
     case 'dark':
@@ -31,6 +31,7 @@ const getSizeStyle = (size: 'small' | 'medium' | 'large') => {
       return css`
         min-width: 40px;
         height: 32px;
+        padding: 0 12px;
         font-size: 12px;
         font-weight: 400;
       `;
@@ -38,6 +39,7 @@ const getSizeStyle = (size: 'small' | 'medium' | 'large') => {
       return css`
         min-width: 64px;
         height: 48px;
+        padding: 0 16px;
         font-size: 16px;
         font-weight: 500;
       `;
@@ -45,6 +47,7 @@ const getSizeStyle = (size: 'small' | 'medium' | 'large') => {
       return css`
         min-width: 96px;
         height: 56px;
+        padding: 0 20px;
         font-size: 20px;
         font-weight: 600;
       `;

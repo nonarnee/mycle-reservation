@@ -5,7 +5,6 @@ import { OverlayProvider } from '@toss/use-overlay';
 import { Routes } from './pages/Routes';
 import GlobalStyles from './GlobalStyles';
 import { theme } from './styles/theme';
-import { PageLayout } from './pages/PageLayout';
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -14,11 +13,9 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <PageLayout>
-          <OverlayProvider>
-            <Routes />
-          </OverlayProvider>
-        </PageLayout>
+        <OverlayProvider>
+          <Routes />
+        </OverlayProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

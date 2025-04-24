@@ -1,4 +1,5 @@
 .content {
   flex: 1;
   overflow-y: auto;
+  padding-bottom: var(--size-cta-height);
 }

@@ -15,7 +15,11 @@ export default function PageHeader({ title, children }: PropsWithChildren<Props>
   };
 
   return (
-    <header>
+    <header
+      css={css`
+        flex-shrink: 0;
+      `}
+    >
       <div
         css={css`
           display: flex;
