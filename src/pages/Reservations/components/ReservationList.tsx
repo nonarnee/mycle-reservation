@@ -15,7 +15,7 @@ export default function ReservationList({ reservations = [] }: Props) {
   return (
     <>
       <Spacing size={4} />
-      {groupedReservations.map(([time, reservations]) => (
+      {groupedReservations.map(({ time, reservations }) => (
         <ReservationGroup key={time} time={time} reservations={reservations} />
       ))}
       <Spacing size={64} />
