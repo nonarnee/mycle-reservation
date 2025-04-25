@@ -1,5 +1,6 @@
 import {
   InfiniteData,
+  keepPreviousData,
   QueryKey,
   useInfiniteQuery,
   UseInfiniteQueryOptions,
@@ -51,6 +52,7 @@ export default function useInfiniteReservations(
   return useInfiniteQuery({
     queryKey: ['reservations', params],
     queryFn: ({ pageParam = 1 }) => fetchReservations({ ...params, page: pageParam }),
+    placeholderData: keepPreviousData,
     getNextPageParam: (lastPage, allPages) => (lastPage.hasNext ? allPages.length + 1 : undefined),
     initialPageParam: 1,
     select: (data): ReservationsData => {

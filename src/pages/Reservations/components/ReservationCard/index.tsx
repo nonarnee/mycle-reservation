@@ -75,7 +75,7 @@ export default function ReservationCard({ reservation }: Props) {
 
       <div className={styles.info}>
         <span className={styles.car} css={singleLineEllipsis}>
-          {customer?.vehicle.number || ''} {customer?.vehicle.model || ''}
+          {customer?.vehicle.number || '...'} {customer?.vehicle.model || '...'}
         </span>
         <Badge>{visitLabel}</Badge>
       </div>
@@ -84,8 +84,8 @@ export default function ReservationCard({ reservation }: Props) {
 
       <div className={styles.customer}>
         <div className={styles.customerInfo}>
-          <span>{customer?.name || ''}</span>
-          <span>{formatPhoneNumber(customer?.phone || '')}</span>
+          <span>{customer?.name || '...'}</span>
+          <span>{formatPhoneNumber(customer?.phone || '...')}</span>
         </div>
 
         {reservation.requirements && (
