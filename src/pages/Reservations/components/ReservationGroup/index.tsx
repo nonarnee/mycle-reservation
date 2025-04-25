@@ -10,10 +10,12 @@ interface Props {
 }
 
 export default function ReservationGroup({ time, reservations }: Props) {
+  const reservationCount = reservations.length >= 1000 ? '999+' : reservations.length;
+
   return (
     <>
       <div className={styles.time}>
-        {time} {reservations.length}건
+        {time} {reservationCount}건
       </div>
       <ul className={styles.group}>
         {reservations.map((reservation) => (

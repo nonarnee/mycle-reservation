@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { NavigateFunction } from 'react-router';
 
 import { ReservationDetail, ReservationStatus } from '@/types/reservation';
 import Button from '@/ui/Button';
@@ -10,16 +11,24 @@ interface ReservationDeferModalProps {
   isOpen: boolean;
   close: () => void;
   reservation: ReservationDetail;
+  onNavigate: NavigateFunction;
 }
 
 export default function ReservationDeferModal({
   isOpen,
   close,
   reservation,
+  onNavigate,
 }: ReservationDeferModalProps) {
   const handleDefer = () => {
     setStatus(reservation.serverId, ReservationStatus.DEFERRED);
     close();
+
+    if (window.history.length > 1) {
+      onNavigate(-1);
+    } else {
+      onNavigate('/reservations', { replace: true });
+    }
   };
 
   return (

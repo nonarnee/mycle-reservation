@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
+import { cx } from '@emotion/css';
 
 import Navigator from '@/ui/Navigator';
 import ChevronLeftIcon from '@/assets/icons/chevron_left.svg?react';
@@ -10,14 +11,18 @@ import { useReservationFilterStore } from '../../stores/reservationFilterStore';
 
 import styles from './ReservationsHeader.module.css';
 
-export default function ReservationsHeader() {
+interface Props {
+  hasShadow?: boolean;
+}
+
+export default function ReservationsHeader({ hasShadow = false }: Props) {
   const { hideCancelled, toggleCancelled, selectedDate, goToPreviousDay, goToNextDay } =
     useReservationFilterStore();
 
   const formattedDate = format(new Date(selectedDate), 'M월 d일 eeee', { locale: ko });
 
   return (
-    <header className={styles.header}>
+    <header className={cx(styles.header, { [styles.shadow]: hasShadow })}>
       <div className={styles.navigator}>
         <Navigator
           prev={

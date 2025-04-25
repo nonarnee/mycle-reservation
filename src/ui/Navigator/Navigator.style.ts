@@ -15,7 +15,7 @@ export const NavigatorContents = styled.div`
   transform: translateX(-50%);
   font-size: 20px;
   font-weight: 600;
-  color: ${theme.colors['gray-dark']};
+  color: ${theme.colors.grayDark};
 `;
 
 export const NavigatorSide = styled.div`

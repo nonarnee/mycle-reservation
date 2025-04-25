@@ -8,9 +8,9 @@ export default function ReservationsDetailPage() {
   return (
     <>
       <PageAnimationLayout
-        initial={{ opacity: 0, x: 150 }}
+        initial={{ opacity: 0, x: 250 }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 150 }}
+        exit={{ opacity: 0, x: 250 }}
         transition={{ duration: 0.3 }}
       >
         <ReservationHeader />

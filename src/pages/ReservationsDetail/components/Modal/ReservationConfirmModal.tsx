@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { NavigateFunction } from 'react-router';
 
 import { ReservationDetail, ReservationStatus } from '@/types/reservation';
 import Modal from '@/ui/Modal';
@@ -10,16 +11,24 @@ interface ReservationConfirmModalProps {
   isOpen: boolean;
   close: () => void;
   reservation: ReservationDetail;
+  onNavigate: NavigateFunction;
 }
 
 export default function ReservationConfirmModal({
   isOpen,
   close,
   reservation,
+  onNavigate,
 }: ReservationConfirmModalProps) {
   const handleConfirm = () => {
     setStatus(reservation.serverId, ReservationStatus.CONFIRMED);
     close();
+
+    if (window.history.length > 1) {
+      onNavigate(-1);
+    } else {
+      onNavigate('/reservations', { replace: true });
+    }
   };
 
   return (
