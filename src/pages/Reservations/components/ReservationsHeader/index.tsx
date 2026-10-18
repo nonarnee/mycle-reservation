@@ -43,7 +43,7 @@ export default function ReservationsHeader({ hasShadow = false }: Props) {
 
       <div className={styles.filter}>
         <span>취소된 예약 안보기</span>
-        <Switch checked={hideCancelled} onClick={toggleCancelled} />
+        <Switch aria-label="취소된 예약 안보기" checked={hideCancelled} onClick={toggleCancelled} />
       </div>
     </header>
   );

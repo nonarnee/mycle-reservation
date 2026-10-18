@@ -35,6 +35,7 @@ export default function ReservationDeferModal({
     <Modal
       isOpen={isOpen}
       onDimmerClick={close}
+      onClose={close}
       header={<Modal.Header text="작업이 어려우신가요?" />}
       cta={
         <Modal.CTA

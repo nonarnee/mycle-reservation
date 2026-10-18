@@ -9,11 +9,11 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
+  { ignores: ['dist/**', 'node_modules/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['dist', 'node_modules'],
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: 2022,

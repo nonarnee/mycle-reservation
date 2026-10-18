@@ -42,6 +42,11 @@ export const SwitchInput = styled.input`
   overflow: hidden;
   white-space: nowrap;
   appearance: none;
+
+  &:focus-visible + label {
+    outline: 2px solid ${theme.colors.primary};
+    outline-offset: 3px;
+  }
 `;
 
 export const SwitchLabel = styled.label<{ checked: boolean }>`

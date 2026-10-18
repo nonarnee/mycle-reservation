@@ -24,12 +24,12 @@ export const StyledModalContent = styled.div`
 
 export const StyledModalContainer = styled.div`
   position: fixed;
-  width: 100%:
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: conter;
+  align-items: center;
   inset: 0;
   z-index: 1;
 `;

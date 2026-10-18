@@ -35,6 +35,7 @@ export default function ReservationConfirmModal({
     <Modal
       isOpen={isOpen}
       onDimmerClick={close}
+      onClose={close}
       header={<Modal.Header text="예약을 확정할까요?" />}
       cta={
         <Modal.CTA
